@@ -15,11 +15,23 @@
 
 <body>
     <div class="page-container">
+        <div class="game-intro">
+            <video id="vid" width="80%">
+                <source src="vid/yogaInstruction.mp4" type="video/mp4" />
+            </video>
+            <div class="play-btn">
+                <div class="play-btn-container">
+                    <button onclick="Play()" id="demo">Start Playing!</button>
+                </div>
+            </div>
+        </div>
         <div class="video-container">
             <div id="video-grid"></div>
         </div>
         <div class="chat-btn">
-            <button>Let's chat!</button>
+            <div class="chat-btn-container">
+                <button>Let's chat!</button>
+            </div>
         </div>
         <div class="chat-container">
             <div class="bot-container">
@@ -45,9 +57,14 @@
                 </form>
             </div>
         </div>
+        <!--
+                        <video id="player" controls></video>
+            <button data-video-url="/public/vid/yogaInstruction.mp4">Start Playing!</button>
+        -->
     </div>
     <script src="js/main.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/video.js"></script>
 
 </body>
 

@@ -1,5 +1,13 @@
+const play_btn = document.querySelector(".play-btn");
 const chat_btn = document.querySelector(".chat-btn");
 const info_chat = document.querySelector(".chat-container");
+const info_chat_btn = document.querySelector(".chat-btn-container");
+const info_play_btn = document.querySelector(".play-btn-container");
+
+play_btn.onclick = ()=>{
+    play_btn.remove("activePlay");
+    info_chat_btn.classList.add("activeChat");
+}
 
 chat_btn.onclick = ()=>{
     info_chat.classList.add("activeInfo");

@@ -67,10 +67,18 @@ a {
 	opacity: 0;
 }
 
-.chat-container.activeInfo {
+.chat-btn-container {
+	opacity: 0;
+}
+
+.chat-container.activeInfo,
+.play-btn.activePlay,
+.chat-btn-container.activeChat
+ {
     opacity: 1; 
     pointer-events: auto;
 }
+
 
 .chat-header {
 	background: var(--light-pink);
