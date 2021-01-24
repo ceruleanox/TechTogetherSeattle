@@ -28,7 +28,7 @@ io.on('connection', socket => {
       "message",
       formatMessage(
         botName,
-        "Hope you enjoyed this session with Yoga Remastered! Feel free to stay in the room to chat and connect with one another here. &#128522;"
+        "Hope you enjoyed this session with Yoga Remastered! Feel free to stay in the room to chat and connect with one another here."
       )
     );
 
