@@ -1,3 +1,10 @@
+const chat_btn = document.querySelector(".chat-btn");
+const info_chat = document.querySelector(".chat-container");
+
+chat_btn.onclick = ()=>{
+    info_chat.classList.add("activeInfo");
+}
+
 /* global Peer */
 
 
@@ -7,7 +14,7 @@
  * @returns {void}
  */
 
-
+/*
 function getLocalStream() {
     navigator.mediaDevices.getUserMedia({video: false, audio: true}).then( stream => {
         window.localStream = stream;
@@ -19,3 +26,4 @@ function getLocalStream() {
 }
 
 getLocalStream();
+*/

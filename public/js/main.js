@@ -77,8 +77,11 @@ myPeer.on('open', id => {
 */
 
 const myVideo = document.createElement('video');
+// comment out muting while not testing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 myVideo.muted = true;
 const peerVideo = document.createElement('video');
+// comment out muting while not testing!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+peerVideo.muted = true;
 
 const peers = {};
 
