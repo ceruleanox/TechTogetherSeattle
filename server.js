@@ -12,6 +12,28 @@ const io = socketio(server);
 // set static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+/****************** addition */
+const {ExpressPeerServer} = require('peer');
+
+const peerServer = ExpressPeerServer(server, {
+    proxied: true,
+    debug: true,
+    path: '/myapp',
+    ssl: {}
+});
+
+app.use(peerServer);
+
+app.use(express.static(path.join(__dirname)));
+
+app.get("/", (request, response) => {
+    response.sendFile(__dirname + "/index.html");
+});
+
+/****************** end addition */
+
+
 const botName = 'Aida Bot'; // a nod to AI and to Ada Lovelace, the world's first computer programmer
 
 // run when client connects
@@ -28,7 +50,7 @@ io.on('connection', socket => {
       "message",
       formatMessage(
         botName,
-        "Hope you enjoyed this session with Yoga Remastered! Feel free to stay in the room to chat and connect with one another here. &#128522;"
+        "Hope you enjoyed this session with Yoga Remastered! Feel free to stay in the room to chat and connect with one another here."
       )
     );
 
@@ -70,6 +92,6 @@ io.on('connection', socket => {
     });
   });
 
-const PORT = 3002 || process.env.PORT;
+const PORT = 3000 || process.env.PORT;
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));

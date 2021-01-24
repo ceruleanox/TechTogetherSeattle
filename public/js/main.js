@@ -24,21 +24,61 @@ Qs.parse(location.search, {
 const videoGrid = document.getElementById('video-grid');
 
 /*
+const peer = new Peer(username); 
+
+const conn = peer.connect('yes');
+conn.on('open', () => {
+  conn.send('hi!');
+});
+
+peer.on('connection', (conn) => {
+  conn.on('data', (data) => {
+    // Will print 'hi!'
+    console.log(data);
+  });
+  conn.on('open', () => {
+    conn.send('hello!');
+  });
+});
+
+navigator.mediaDevices.getUserMedia({video: true, audio: true}, (stream) => {
+  const call = peer.call('yes', stream);
+  call.on('stream', (remoteStream) => {
+    // Show stream in some <video> element.
+  });
+}, (err) => {
+  console.error('Failed to get local stream', err);
+});
+
+peer.on('call', (call) => {
+  navigator.mediaDevices.getUserMedia({video: true, audio: true}, (stream) => {
+    call.answer(stream); // Answer the call with an A/V stream.
+    call.on('stream', (remoteStream) => {
+      // Show stream in some <video> element.
+    });
+  }, (err) => {
+    console.error('Failed to get local stream', err);
+  });
+});
+*/
+
+/*
 // create connection to peer server
-const myPeer = new Peer(undefined, {
+const myPeer = new Peer(username, {
     host: '/',
     port: '3001'
 });
 
+var conn = myPeer.connect('yes');
 
 myPeer.on('open', id => {
     socket.emit('join-room', { username, room })
 });
-
 */
 
 const myVideo = document.createElement('video');
 myVideo.muted = true;
+const peerVideo = document.createElement('video');
 
 const peers = {};
 
@@ -47,6 +87,7 @@ navigator.mediaDevices.getUserMedia({
     audio: true
 }).then(stream => {
     addVideoStream(myVideo, stream);
+    addVideoStream(peerVideo, stream);
 });
 
 /*
@@ -62,6 +103,7 @@ function addVideoStream(video, stream) {
     });
     videoGrid.append(video);
 }
+
 /*
 function connectToNewUser(userId, stream) {
     const call = myPeer.call(userId, stream);
