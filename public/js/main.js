@@ -2,6 +2,7 @@ const roomForm = document.getElementById('room-form');
 const chatMessages = document.querySelector('.chat-messages');
 const roomName = document.getElementById('room-name');
 const userList = document.getElementById('users');
+const userLeaderboard = document.getElementById('leaderboard');
 
 // get username and room from URL parameters
 
@@ -192,4 +193,7 @@ function outputUsers(users) {
    userList.innerHTML = `
     ${users.map(user => `<li>${user.username}</li>`).join('')}
    `;
+   userLeaderboard.innerHTML = `
+   ${users.map(user => `<li>${user.username}</li>`).join('')}
+  `;
 }
