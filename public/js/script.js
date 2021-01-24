@@ -11,6 +11,7 @@ play_btn.onclick = ()=>{
 
 chat_btn.onclick = ()=>{
     info_chat.classList.add("activeInfo");
+    chat_btn.remove("activeChat");
 }
 
 /* global Peer */
